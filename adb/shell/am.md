@@ -1,3 +1,6 @@
+---
+title: adb shell am Commands
+---
 
 ## start \[options\] \<INTENT\>
 **description:** start an Activity
