@@ -3,7 +3,9 @@ title: adb shell am Commands
 ---
 
 ## start \[options\] \<INTENT\>
+
 **description:** start an Activity
+
 **options:** 
  - `-D`: enable debugging
  - `-N`: enable native debugging
@@ -21,24 +23,31 @@ title: adb shell am Commands
 
 
 ## startservice \[options\] \<INTENT\>
+
 **description:** start a Service.
+
 **options:**
  - `--user <USER_ID> | current`: Specify which user to run as; if not specified then run as the current user.
 
 
 ## stopservice \[options\] \<PACKAGE\>
+
 **description:** stop a Service.
+
 **options:**
  - `--user <USER_ID> | current`: Specify which user to run as; if not specified then run as the current user.
 
 
 ## force-stop \[options\] \<PACKAGE\>
+
 **description:** force stop everything associated with `<PACKAGE>`.
+
 **options:**
  - `--user <USER_ID> | all | current`: Specify user to force stop; all users if not specified.
 
 
 ## kill \[options\] \<PACKAGE\>
+
 **description:** Kill all processes associated with `<PACKAGE>`.
  - Only kills processes that are safe to kill -- that is, will not impact the user experience.
 
@@ -47,18 +56,22 @@ title: adb shell am Commands
 
 
 ## kill-all
+
 **description:** Kill all background processes.
  - __WARNING:__ may be considered *DANGEROUS*
 
 
 ## broadcast \[options\] \<INTENT\>
+
 **description:** force stop everything associated with `<PACKAGE>`.
+
 **options:**
  - `--user <USER_ID> | all | current`: Specify which user to send to; if not specified then send to all users.
  - `--receiver-permission <PERMISSION>`: Require receiver to hold permission.
 
 
 ## instrument \[options\] \<COMPONENT\>
+
 **description:** start an Instrumentation.
  - Typically this target `<COMPONENT>` is the form `<TEST_PACKAGE>/<RUNNER_CLASS>` or only `<TEST_PACKAGE>` if there is only one instrumentation.
 
@@ -77,16 +90,20 @@ title: adb shell am Commands
 
 
 ## trace-ipc start
+
 **description:** start tracing IPC transactions.
 
 
 ## trace-ipc stop \[options\]
+
 **description:** stop tracing IPC transactions and dump the results to file.
 **options:**
+
  - `--dump-file <FILE>`: Specify the file the trace should be dumped to.
 
 
 ## profile start \[options\] \<PROCESS\> \<FILE\>
+
 **description:** start profiler on a process.
  - The given `<PROCESS>` argument may be either a process name or pid.
 
@@ -96,12 +113,15 @@ title: adb shell am Commands
 
 
 ## profile stop \[options\] \[\<PROCESS\>\]
+
 **description:** stop profiler on a process.
+
 **options:**
  - `--user <USER_ID> | current`: When supplying a process name, specify user of process to profile; uses current user if not specified.
 
 
 ## dumpheap \[options\] \<PROCESS\> \<FILE\>
+
 **description:** dump the heap of a process.
  - The given `<PROCESS>` argument may be either a process name or pid.
 
@@ -111,85 +131,108 @@ title: adb shell am Commands
 
 
 ## set-debug-app \[options\] \<PACKAGE\>
+
 **description:** set application `<PACKAGE>` to debug.
+
 **options:**
  - `-w`: wait for debugger when application starts
  - `--persistent`: retain this value
 
 
 ## clear-debug-app
+
 **description:** clear the previously set-debug-app.
 
 
 ## set-watch-heap \<PROCESS\> \<MEM-LIMIT\>
+
 **description:** start monitoring pss size of `<PROCESS>`, if it is at or above `<MEM-LIMIT>` then a heap dump is collected for the user to report.
 
 
 ## clear-watch-heap
+
 **description:** clear the previously set-watch-heap.
 
 
 ## bug-report \[options\]
+
 **description:** request bug report generation; will launch a notification when done to select where it should be delivered.
+
 **options:**
  - `--progress`: will launch a notification right away to show its progress.
  - `--telephony`: will dump only telephony sections.
 
 
 ## monitor \[options\]
+
 **description:** start monitoring for crashes or ANRs.
+
 **options:**  
  - `--gdb <port>`: start gdbserv on the given port at crash/ANR
 
 
 ## hang \[options\]
+
 **description:** hang the system.
+
 **options:**  
  - `--allow-restart`: allow watchdog to perform normal system restart
 
 
 ## restart
+
 **description:** restart the user-space system.
 
 
 ## idle-maintenance
+
 **description:** perform idle maintenance now.
 
 
 ## screen-compat \[on|off\] \<PACKAGE\>
+
 **description:** control screen compatibility mode of `<PACKAGE>`.
 
 
 ## package-importance \<PACKAGE\>
+
 **description:** print current importance of `<PACKAGE>`.
 
 
 ## to-uri \[INTENT\]
+
 **description:** print the given Intent specification as a URI.
 
 
 ## to-intent-uri \[INTENT\]
+
 **description:** print the given Intent specification as an intent: URI.
 
 
 ## to-app-uri \[INTENT\]
+
 **description:** print the given Intent specification as an android-app: URI.
 
 
 ## switch-user \<USER_ID\>
+
 **description:** switch to put `USER_ID` in the foreground, starting execution of that user if it is currently stopped.
 
 
 ## start-user \<USER_ID\>
+
 **description:** start `USER_ID` in background if it is currently stopped, use switch-user if you want to start the user in foreground.
 
 
 ## unlock-user \<USER_ID\> \[TOKEN_HEX\] \([*undocumented function*](https://github.com/JacobTDC/manuals/wiki/Undocumented-Function#adb-shell-unlock-user)\)
+
 **description:** undocumented function.
 
 
 ## stop-user \[options\] \<USER_ID\>
+
 **description:** stop execution of `USER_ID`, not allowing it to run any code until a later explicit start or switch to it.
+
 **options:**  
  - `-w`: wait for stop-user to complete.
  - `-f`: force stop even if there are related users that cannot be stopped.
